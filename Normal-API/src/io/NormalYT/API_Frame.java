@@ -3,14 +3,18 @@ package io.NormalYT;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.JButton;
 
 public class API_Frame {
 
@@ -69,12 +73,45 @@ public class API_Frame {
 		tabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
 
 		JComponent panel4 = InfoPanel(//code here 
-		        "Test");
+		        "<html><span style='font-size:20px'>Normal-API</span><span>   In DEV   </html>");
 		//panel4.setPreferredSize(new Dimension(410, 50));
 		tabbedPane.addTab("Info", null, panel4,
 		                      "Info");
 		tabbedPane.setMnemonicAt(3, KeyEvent.VK_4);
+		
+		JPanel panel = new JPanel();
+		frame.getContentPane().add(panel, BorderLayout.SOUTH);
+		
+		JButton button = new JButton("Self Destruct");
+		panel.add(button);
+		button.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				Object[] options = {"Yup",
+                "Nope"};
+                int n = JOptionPane.showOptionDialog(frame,
+                "Are you sure?",
+                "confirmation",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,     //do not use a custom Icon
+                options,  //the titles of buttons
+                options[0]); //default button title
+                
+                switch(n){
+                case 0: JOptionPane.showMessageDialog(frame,
+                	    "I think your fucked now.",
+                	    "Inane error",
+                	    JOptionPane.ERROR_MESSAGE);
+                //case 1: JOptionPane.showMessageDialog(frame,
+                //	    "You are smart man!");
+                }
+			}
+		});
+		
+		
 	}
+	
+	
 
 	private JComponent makeTextPanel(String text) {
 		JPanel panel = new JPanel(false);
@@ -87,11 +124,12 @@ public class API_Frame {
 	
 	private JComponent InfoPanel(String text) {
 		JPanel panel = new JPanel(false);
-        JLabel filler = new JLabel(text);
-        filler.setHorizontalAlignment(JLabel.CENTER);
         panel.setLayout(new GridLayout(1, 1));
+        JLabel filler = new JLabel(text);
         panel.add(filler);
+        filler.setHorizontalAlignment(JLabel.CENTER);
         return panel;
+		
 	}
 		
 	
