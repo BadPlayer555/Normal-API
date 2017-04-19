@@ -1,20 +1,30 @@
 package io.NormalYT;
 
+import java.awt.AWTException;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+
+import org.omg.CORBA_2_3.portable.InputStream;
+
+import java.awt.Button;
 import javax.swing.JButton;
+import api.*;
 
 public class API_Frame {
 
@@ -51,25 +61,25 @@ public class API_Frame {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		ImageIcon img = new ImageIcon("C://Users//douglas2//Desktop//Resources//minecraft_icon_by_dharmainitiative2010-d33ca5p.png");
+		ImageIcon img = new ImageIcon("http://i.imgur.com/3VkoxQ6.jpg");
 		frame.setIconImage(img.getImage());
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		frame.getContentPane().add(tabbedPane, BorderLayout.NORTH);
 
-		JComponent panel1 = makeTextPanel("In DEV");
-		tabbedPane.addTab("Flood attack", null, panel1,
-		                  "lol");
+		JComponent panel1 = GoodbyeMotherFucker("Fuck yeah");
+		tabbedPane.addTab("GoodBye Mother Fucker", null, panel1,
+		                  "lmao");
 		tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
 
-		JComponent panel2 = makeTextPanel("In DEV");
-		tabbedPane.addTab("Tab 2", null, panel2,
-		                  "Does twice as much nothing");
+		JComponent panel2 = ProxyClient("In DEV");
+		tabbedPane.addTab("Proxy Client", null, panel2,
+		                  "Hide your IP");
 		tabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
 
-		JComponent panel3 = makeTextPanel("In DEV");
-		tabbedPane.addTab("Tab 3", null, panel3,
-		                  "Still does nothing");
+		JComponent panel3 = Email("In DEV");
+		tabbedPane.addTab("Email", null, panel3,
+		                  "Email");
 		tabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
 
 		JComponent panel4 = InfoPanel(//code here 
@@ -102,18 +112,68 @@ public class API_Frame {
                 	    "I think your fucked now.",
                 	    "Inane error",
                 	    JOptionPane.ERROR_MESSAGE);
+                 for(int i = 1; i < 100000;i++){
+                	try {
+						TimeUnit.SECONDS.sleep(0);//Take the fat L ¯\_(ツ)_/¯
+					} catch (InterruptedException e2) {
+						// TODO Auto-generated catch block
+						e2.printStackTrace();
+					}
+                	System.out.println("in fucking");
+                	try {
+						api.Jitter.jitter();
+					} catch (AWTException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+                }
+                
+                
+                
                 //case 1: JOptionPane.showMessageDialog(frame,
                 //	    "You are smart man!");
                 }
 			}
+
 		});
 		
 		
 	}
+	private JComponent GoodbyeMotherFucker(String text) {
+		JPanel panel = new JPanel(false);
+        JLabel filler = new JLabel(text);
+        filler.setHorizontalAlignment(JLabel.CENTER);
+        panel.setLayout(new GridLayout(1, 1));
+        panel.add(filler);
+        return panel;
+	}
+	
+	private JComponent ProxyClient(String text) {
+		JPanel panel = new JPanel(false);
+        JButton button = new JButton(text);
+        button.setHorizontalAlignment(JLabel.CENTER);
+        panel.setLayout(new GridLayout(1, 1));
+        panel.add(button);
+        button.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+
+				
+			}
+			
+				
+			});
+        	
+        
+        return panel;
+}
+	
 	
 	
 
-	private JComponent makeTextPanel(String text) {
+	private JComponent Email(String text) {
 		JPanel panel = new JPanel(false);
         JLabel filler = new JLabel(text);
         filler.setHorizontalAlignment(JLabel.CENTER);
@@ -131,7 +191,6 @@ public class API_Frame {
         return panel;
 		
 	}
-		
 	
 
 }
