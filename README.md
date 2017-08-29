@@ -7,3 +7,7 @@ It is just a in DEV project so don't be surpise to see a lot of bug.
 Added api package.
 Added Jitter api.
 Fixed bug that can't show some tapped panel in WindowBuilder.
+
+# 8/29/2017
+
+realised this is the shiitest thing that coded in my hole life
